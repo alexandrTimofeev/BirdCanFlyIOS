@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e6a058684896f44d8c4162cf713b786, type: 3}
+  m_Name: Level_5
+  m_EditorClassIdentifier: 
+  ScoreTarget: 100
+  Timer: 100
+  LevelPrefab: {fileID: 1360471853572130245, guid: 51e6c6070db79074c892e9c6d3a83503, type: 3}

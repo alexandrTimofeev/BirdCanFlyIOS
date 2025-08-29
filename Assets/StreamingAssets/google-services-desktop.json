@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1012627084904",
+    "project_id": "chickencanfly-a5561",
+    "storage_bucket": "chickencanfly-a5561.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1012627084904:android:ed7cf04a8b7906a7208ddd",
+        "android_client_info": {
+          "package_name": "com.Snk.ChickenCanFly"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZYLvaCyQRx13ZGyPqWBpZl1kQn8-KtsU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

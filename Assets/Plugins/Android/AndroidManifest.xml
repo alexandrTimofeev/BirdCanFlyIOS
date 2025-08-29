@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" package="com.Snk.ChickenCanFly" android:versionCode="1" android:versionName="1.0">
+  <!-- 🔒 Разрешения, необходимые для работы рекламы, аналитики, Firebase и т.д. -->
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+  <!-- Можно удалить, если не используешь уведомления -->
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
+  <!-- Для удержания CPU (например, во время фоновой загрузки) -->
+  <!-- Название приложения -->
+  <!-- Иконка приложения -->
+  <!-- true = разрешает HTTP, false = только HTTPS -->
+  <application android:label="@string/app_name" android:icon="@drawable/app_icon" android:usesCleartextTraffic="true">
+    <!-- 🔔 Firebase Cloud Messaging: иконка по умолчанию для пушей -->
+    <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/white_frame" />
+    <!-- Монохромная белая иконка без фона -->
+    <!-- 📊 AppsFlyer аналитика и трекинг -->
+    <meta-data android:name="AppsFlyerKey" android:value="YOUR_DEV_KEY" />
+    <!-- Заменить на твой ключ из AppsFlyer -->
+    <meta-data android:name="AppsFlyerAppId" android:value="YOUR_APP_ID" />
+    <!-- Заменить на ID приложения в Google Play -->
+    <!-- 🎮 Основная активность Unity, с поддержкой уведомлений -->
+    <activity android:name="com.google.firebase.MessagingUnityPlayerActivity" android:theme="@style/UnityThemeSelector" android:launchMode="singleTask" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:screenOrientation="unspecified">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+      <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
+    </activity>
+    <!-- 🔁 Firebase forwarding (для работы с уведомлениями) -->
+    <service android:name="com.google.firebase.messaging.MessageForwardingService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="true" />
+    <!-- 🔗 Отслеживание установки через Google Play -->
+    <receiver android:name="com.appsflyer.SingleInstallBroadcastReceiver" android:exported="true">
+      <intent-filter>
+        <action android:name="com.android.vending.INSTALL_REFERRER" />
+      </intent-filter>
+    </receiver>
+  </application>
+</manifest>
