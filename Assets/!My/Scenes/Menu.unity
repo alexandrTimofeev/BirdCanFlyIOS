@@ -2173,7 +2173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d90ab7a18733f946a4337de6cb6b8a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _link: https://chickencanflychicken.com/privacy-policy.html
+  _link: https://birdmustfly.com/privacy-policy.html
 --- !u!4 &938313752
 Transform:
   m_ObjectHideFlags: 0
