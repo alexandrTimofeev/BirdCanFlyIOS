@@ -24,6 +24,11 @@ public class ObstacleMoverSequenser : MonoBehaviour
         {
             for (int i = 0; i < behaviourSequences.Length; i++)
             {
+                while (GamePause.IsPause)
+                {
+                    yield return new WaitForEndOfFrame();
+                }
+
                 yield return StartCoroutine(PlaySequencesCoroutine(behaviourSequences[i]));
             }
             yield return null;
@@ -49,37 +54,44 @@ public class ObstacleMoverSequenser : MonoBehaviour
 
             case MoverBehaviourType.MovePosition:
                 tween = target.DOMove(behaviourSequence.endPosition, behaviourSequence.duration)
-                              .SetEase(behaviourSequence.ease);
+                              .SetEase(behaviourSequence.ease)
+                              .SetAutoKill();
                 break;
 
             case MoverBehaviourType.MoveLocalPosition:
                 tween = target.DOLocalMove(behaviourSequence.endLocalPosition, behaviourSequence.duration)
-                              .SetEase(behaviourSequence.ease);
+                              .SetEase(behaviourSequence.ease)
+                              .SetAutoKill();
                 break;
 
             case MoverBehaviourType.MoveXPosition:
                 tween = target.DOMoveX(behaviourSequence.endX, behaviourSequence.duration)
-                              .SetEase(behaviourSequence.ease);
+                              .SetEase(behaviourSequence.ease)
+                              .SetAutoKill();
                 break;
 
             case MoverBehaviourType.MoveYPosition:
                 tween = target.DOMoveY(behaviourSequence.endY, behaviourSequence.duration)
-                              .SetEase(behaviourSequence.ease);
+                              .SetEase(behaviourSequence.ease)
+                              .SetAutoKill();
                 break;
 
             case MoverBehaviourType.MoveZPosition:
                 tween = target.DOMoveZ(behaviourSequence.endZ, behaviourSequence.duration)
-                              .SetEase(behaviourSequence.ease);
+                              .SetEase(behaviourSequence.ease)
+                              .SetAutoKill();
                 break;
 
             case MoverBehaviourType.Rotate:
                 tween = target.DORotate(behaviourSequence.endRotation, behaviourSequence.duration)
-                              .SetEase(behaviourSequence.ease);
+                              .SetEase(behaviourSequence.ease)
+                              .SetAutoKill();
                 break;
 
             case MoverBehaviourType.Scale:
                 tween = target.DOScale(behaviourSequence.endScale, behaviourSequence.duration)
-                              .SetEase(behaviourSequence.ease);
+                              .SetEase(behaviourSequence.ease)
+                              .SetAutoKill();
                 break;
 
             default:
@@ -90,9 +102,10 @@ public class ObstacleMoverSequenser : MonoBehaviour
         if (behaviourSequence.waitToPlay)
         {
             // Ждём завершения твина
-            while (true)
+            /*while (true)
             {
-                if (tween.IsComplete())                
+                Debug.Log($"tween.IsComplete() => {tween.IsComplete()}");
+                if (tween.IsComplete() || tween == null)                
                     break;                
 
                 if (tween.IsPlaying() == false)                
@@ -105,9 +118,10 @@ public class ObstacleMoverSequenser : MonoBehaviour
                         tween.Pause();
                     yield return new WaitWhile(() => GamePause.IsPause);
                 }
-            }
-            //yield return tween.WaitForCompletion();
+            }*/
+            yield return tween.WaitForCompletion();
         }
+        //Debug.Log("завершение твина");
         // если waitToPlay == false, сразу возвращаем управление
     }
 }
